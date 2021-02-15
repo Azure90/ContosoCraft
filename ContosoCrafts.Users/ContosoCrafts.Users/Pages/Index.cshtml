@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+    th{
+        color: #212529
+    }
+</style>
+
+<h3>Json Data </h3>
+<table class="table table-bordered table-hover table-striped table-checkbox dataTable no-footer">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Adddres</th>
+            <th>Company</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Username</td>
+                <td>@item.Phone</td>
+                <td>@item.Website</td>
+                <td>
+                    @item.address.Street,   @item.address.Suite,
+                    @item.address.City,   @item.address.Zipcode,
+                    @item.address.geo.Lat,  @item.address.geo.Lat
+                </td>
+                <td>
+                    @item.company.Name
+                    <br />
+                    @item.company.CatchPhrase
+                    <br />
+                    @item.company.Bs
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
